@@ -1,0 +1,234 @@
+ @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:100vh;
+    background-color: #c79fe3;
+  }
+  
+  .envelope {
+    position: relative;
+    cursor: pointer;
+    margin-top: 150px;
+}
+
+.back {
+    position: relative;
+    width: 450px; /* Increased by 200px */
+    height: 400px; /* Increased by 200px */
+    background-color: #6247aa;
+}
+
+.letter {
+    position: absolute;
+    background-color: #fff;
+    width: 430px;
+    height: 380px;
+    top: 10px;
+    left: 10px;
+    transition: .2s;
+}
+
+.front {
+    position: absolute;
+    border-right: 310px solid #815ac0;
+    border-top: 200px solid transparent;
+    border-bottom: 200px solid transparent;
+    height: 0;
+    width: 0;
+    top: 0;
+    left: 140px; /* Adjusted for the increased back size */
+    z-index: 3;
+}
+
+.front:before {
+    content: "";
+    position: absolute;
+    border-left: 310px solid #815ac0;
+    border-top: 200px solid transparent;
+    border-bottom: 200px solid transparent;
+    height: 0;
+    width: 0;
+    top: -200px;
+    left: -140px; /* Adjusted for the increased back size */
+}
+
+.front:after {
+    content: "";
+    position: absolute;
+    border-bottom: 250px solid #7251b5;
+    border-left: 225px solid transparent;
+    border-right: 225px solid transparent;
+    height: 0;
+    width: 0;
+    top: -50px;
+    left: -140px; /* Adjusted for the increased back size */
+}
+
+.top {
+    position: absolute;
+    border-top: 250px solid #9163cb;
+    border-left: 225px solid transparent;
+    border-right: 225px solid transparent;
+    height: 0;
+    width: 0;
+    top: 0;
+    transform-origin: top;
+    transition: .4s;
+}
+
+.shadow {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 450px; /* Increased by 200px */
+    height: 10px;
+    top: 420px; /* Adjusted for the increased back size */
+    border-radius: 50%;
+}
+
+.envelope:hover .top {
+    transform: rotateX(160deg);
+}
+
+.envelope:hover .letter {
+    transform: translateY(-100px);
+    z-index: 2;
+}
+
+.text {
+    text-align: center;
+    padding: 20px;
+}
+
+.title {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.message {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+}
+:root {
+    --backgroundColor: rgba(246, 241, 209);
+    --colorShadeA: rgb(81, 112, 236);
+    --colorShadeB: rgb(89, 191, 247);
+    --colorShadeC: rgb(107, 183, 242);
+    --colorShadeD: rgb(133, 214, 255);
+    --colorShadeE: rgb(171, 193, 247);
+  }
+  
+ 
+  * {
+    box-sizing: border-box;
+  }
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: "OpenSans", sans-serif;
+    font-size: 1rem;
+    line-height: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-height: 100vh;
+    background-color: #c79fe3;;
+  }
+  
+  button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: var(--colorShadeA);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: inherit;
+    margin-left: 50px; 
+        margin-top: 50px;
+  }
+
+
+  button.big-button {
+    padding: 1em 2em;
+    border: 2px solid var(--colorShadeA);
+    border-radius: 1em;
+    background: var(--colorShadeE);
+    transform-style: preserve-3d;
+    transition: all 175ms cubic-bezier(0, 0, 1, 1);
+  }
+  button.big-button::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--colorShadeC);
+    border-radius: inherit;
+    box-shadow: 0 0 0 0.2px var(--colorShadeB), 0 0.2px 0 0 var(--colorShadeA);
+    transform: translate3d(0, 0.75em, -1em);
+    transition: all 175ms cubic-bezier(0, 0, 1, 1);
+  }
+  
+  button.big-button:hover {
+    background: var(--colorShadeD);
+    transform: translate(0, 0.375em);
+  }
+  
+  button.big-button:hover::before {
+    transform: translate3d(0, 0.75em, -1em);
+  }
+  
+  button.big-button:active {
+    transform: translate(0em, 0.75em);
+  }
+  
+  button.big-button:active::before {
+    transform: translate3d(0, 0, -1em);
+  
+    box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.25em 0 0 var(--colorShadeB);
+  }
+      
+
+  .popup-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #6247aa; /* Set the background color as needed */
+    color: #000; /* Set the text color as needed */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999; /* Set a high z-index to bring the popup card to the top */
+    width: 100%;
+    height: 100%;
+  }
+  .popup_text{
+     position: fixed;
+     top: 35%;
+     left: 35%;
+     font-size: 25px;
+  }
+
+  
+  #confetti{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
